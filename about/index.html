@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>PromptGalary · mobile menu</title>
+    <style>
+        /* ---------- RESET & GLOBAL ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-page: #f4f7fc;
+            --nav-bg: #ffffff;
+            --footer-bg: #12181f;
+            --footer-text: #9aafc9;
+            --footer-heading: #ccdbe9;
+            --link-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-page);
+            color: #1b2632;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.4;
+        }
+
+        .main-content {
+            flex: 1 0 auto;
+            min-height: 150px;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background-color: var(--nav-bg);
+            border-bottom: 3px solid #dde5ef;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ===== REDESIGNED LOGO – P / G bold uppercase, rest mini bold ===== */
+        .logo a {
+            font-size: 1.8rem;           /* slightly larger to show contrast */
+            font-weight: 400;             /* base weight, we'll override per letter */
+            text-decoration: none;
+            white-space: nowrap;
+            color: #1a2c3f;               /* fallback, but we use spans for styling */
+            display: inline-flex;
+            flex-wrap: wrap;               /* safe for extreme mobile, but word stays inline */
+            letter-spacing: -0.01em;
+        }
+
+        /* we use spans to style individual letters – pure design, no extra functionality */
+        .logo a .pg-bold {
+            font-weight: 800;
+            font-size: 2.2rem;             /* bigger and bold for P and G */
+            line-height: 1;
+            display: inline-block;
+            color: #0f263b;                /* slightly deeper tone */
+            text-transform: uppercase;
+            transform: translateY(2px);      /* optical adjustment */
+        }
+
+        .logo a .rest-mini {
+            font-weight: 500;                /* mini bold */
+            font-size: 1.3rem;                /* smaller than P and G */
+            display: inline-block;
+            color: #2e4b6b;
+            text-transform: lowercase;        /* force small letters */
+            margin: 0 -0.05em;
+        }
+
+        /* fine tune the baseline so everything sits nicely */
+        .logo a .rest-mini:nth-of-type(1) {
+            margin-left: 0.05em;
+        }
+
+        /* optional extra touch: subtle spacing */
+        .logo a {
+            align-items: baseline;
+        }
+
+        /* ensure mobile doesn't break */
+        @media (max-width: 420px) {
+            .logo a {
+                font-size: 1.5rem;
+            }
+            .logo a .pg-bold {
+                font-size: 1.9rem;
+            }
+            .logo a .rest-mini {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* preserve original spacing – no other changes */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        /* ===== end of redesigned logo ===== */
+
+        /* ===== HAMBURGER ICON (mobile only) ===== */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .menu-icon span {
+            width: 100%;
+            height: 3px;
+            background-color: #1e2b3c;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* desktop buttons - always visible */
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: nowrap;
+        }
+
+        /* mobile menu overlay */
+        @media (max-width: 550px) {
+            .menu-icon {
+                display: flex;
+            }
+
+            .nav-buttons {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 5rem 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 150;
+                border-left: 1px solid #eef2f6;
+            }
+
+            .nav-buttons.active {
+                right: 0;
+            }
+
+            /* overlay background when menu open */
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.3);
+                z-index: 140;
+                backdrop-filter: blur(2px);
+            }
+
+            .menu-overlay.active {
+                display: block;
+            }
+
+            .nav-btn, .dropdown-btn {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                padding: 0.5rem 0 0 1rem;
+                background: transparent;
+                border: none;
+                min-width: auto;
+                display: none;
+            }
+
+            .dropdown.show .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 0.6rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            .arrow {
+                margin-left: auto;
+            }
+
+            /* hamburger animation */
+            .menu-icon.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .menu-icon.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-icon.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+        }
+
+        /* base button styles */
+        .nav-btn, .dropdown-btn {
+            background: #f0f4fa;
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 40px;
+            border: 1px solid #dae2ec;
+            white-space: nowrap;
+            cursor: pointer;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover, .dropdown-btn:hover {
+            background: #e3eaf3;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            gap: 0.2rem;
+        }
+
+        .arrow {
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        /* desktop dropdown */
+        @media (min-width: 551px) {
+            .dropdown-menu {
+                position: absolute;
+                top: calc(100% + 8px);
+                right: 0;
+                background: white;
+                min-width: 190px;
+                border-radius: 16px;
+                padding: 0.4rem 0;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(8px);
+                transition: 0.2s;
+                z-index: 100;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .dropdown:hover .arrow {
+                transform: rotate(180deg);
+            }
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.4rem;
+            text-decoration: none;
+            color: #1e2b3c;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f2f6fc;
+        }
+
+        /* ========== FOOTER (same compact version) ========== */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 1rem 1rem 0.8rem;
+            border-top: 1px solid #26303d;
+            font-size: 0.8rem;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.8rem;
+            align-items: center;
+        }
+
+        .footer-group {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-group span {
+            color: var(--footer-heading);
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            opacity: 0.9;
+        }
+
+        .footer-group a {
+            color: #8fa2bc;
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .footer-group a:hover {
+            color: #ccdff5;
+        }
+
+        .footer-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-meta a {
+            color: #95abc6;
+            text-decoration: none;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        .footer-meta a:hover {
+            color: #d3e2f7;
+        }
+
+        .copyright {
+            color: #5f748f;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 700px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .footer-meta {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .footer {
+                padding: 0.8rem 0.8rem 0.6rem;
+            }
+            .footer-group {
+                gap: 0.5rem;
+            }
+            .footer-group a, .footer-meta a {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="/">
+                        <span class="pg-bold">P</span>
+                        <span class="rest-mini">rompt</span>
+                        <span class="pg-bold">G</span>
+                        <span class="rest-mini">alary</span>
+                    </a>
+                </div>
+
+                <!-- hamburger icon (mobile only) -->
+                <div class="menu-icon" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- navigation buttons -->
+                <div class="nav-buttons" id="navMenu">
+                    <a href="/about/" class="nav-btn">About</a>
+                    <a href="/contact/" class="nav-btn">Contact</a>
+                    <div class="dropdown" id="legalDropdown">
+                        <button class="dropdown-btn">
+                            Legal <span class="arrow">▼</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="/term/">Terms of service</a>
+                            <a href="/policy/">Policy & privacy</a>
+                            <a href="/disclaimer/">Disclaimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- overlay for mobile menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main class="main-content"></main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <div class="footer-group">
+                    <span>Company</span>
+                    <a href="/about/">About</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+                <div class="footer-group">
+                    <span>Legal</span>
+                    <a href="/term/">Terms</a>
+                    <a href="/policy/">Privacy</a>
+                    <a href="/disclaimer/">Disclaimer</a>
+                </div>
+            </div>
+            <div class="footer-meta">
+                <a href="/links.html">📁 directory</a>
+                <a href="/sitemap.xml">🗺️ sitemap</a>
+                <div class="copyright">© PromptGalary</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const dropdown = document.getElementById('legalDropdown');
+
+            // Toggle mobile menu
+            function toggleMenu() {
+                menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            // Handle dropdown in mobile
+            if (dropdown) {
+                const dropdownBtn = dropdown.querySelector('.dropdown-btn');
+
+                dropdownBtn.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 550) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('show');
+                    }
+                });
+            }
+
+            // Close menu on window resize if open
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 550) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    if (dropdown) dropdown.classList.remove('show');
+                }
+            });
+
+            // Close menu when clicking a link
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 550) {
+                        toggleMenu();
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
