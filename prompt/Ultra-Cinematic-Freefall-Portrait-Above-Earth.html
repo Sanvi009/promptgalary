@@ -245,7 +245,7 @@
 
   <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  
+
   <!-- Font Awesome 6 - Non-blocking load -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
@@ -1196,7 +1196,8 @@
            sizes="(max-width: 600px) 400px, (max-width: 1000px) 800px, 1000px"
            alt="ai genarated image of chris flying on the sky" 
            width="1920" height="1080"
-           fetchpriority="high">
+           fetchpriority="high"
+           loading="eager">
     </div>
 
     <div class="usage-section">
@@ -1737,6 +1738,52 @@ Ultra-cinematic 360° action-cam view high above Earth, curved horizon and city 
       window.addEventListener('resize', adjustMobileFooter);
       window.addEventListener('load', adjustMobileFooter);
       adjustMobileFooter();
+    })();
+  </script>
+
+  <!-- ===== LAZY LOAD IMAGES WITH INTERSECTION OBSERVER ===== -->
+  <script>
+    (function() {
+      // Only run after page loads
+      if ('IntersectionObserver' in window) {
+        // Wait for DOM to be ready
+        setTimeout(function() {
+          // Select all images except the hero (with fetchpriority)
+          const lazyImages = document.querySelectorAll('.image-item img, .image-grid-section img:not([fetchpriority="high"])');
+
+          if (lazyImages.length === 0) return;
+
+          const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+
+                // If image has srcset but we want to ensure it loads when visible
+                // Just unobserve it - it will load naturally
+                observer.unobserve(img);
+
+                // Optional: Add a small fade effect
+                img.style.transition = 'opacity 0.3s';
+                img.style.opacity = '1';
+              }
+            });
+          }, {
+            rootMargin: '200px 0px', // Start loading when within 200px of viewport
+            threshold: 0.01
+          });
+
+          lazyImages.forEach(img => {
+            // Ensure opacity is set for fade-in
+            if (img.style.opacity !== '1') {
+              img.style.opacity = '0.99'; // Almost invisible but not quite
+            }
+            imageObserver.observe(img);
+          });
+        }, 100); // Small delay to ensure DOM is ready
+      } else {
+        // Fallback for older browsers - they already have loading="lazy" attribute
+        console.log('IntersectionObserver not supported');
+      }
     })();
   </script>
 </body>
