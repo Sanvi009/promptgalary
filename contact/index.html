@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-   <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCG2EZ77R6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-KCG2EZ77R6');
   </script>
 
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Prompt Gallery · refined dropdown</title>
+
+  <!-- Primary Meta Tags -->
+  <title>Contact · Prompt Gallery · Get in touch</title>
+  <meta name="title" content="Contact Prompt Gallery · AI prompt library">
+  <meta name="description" content="Get in touch with Prompt Gallery for questions about AI prompts, technical issues, copyright concerns, or business inquiries. We aim to respond within 24-48 hours.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/asset/favicon.png">
+  <link rel="shortcut icon" href="/asset/favicon.png">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://promptgalary.com/contact">
+  <meta property="og:title" content="Contact Prompt Gallery · AI prompt library">
+  <meta property="og:description" content="Get in touch for questions about AI prompts, technical issues, copyright concerns, or business inquiries.">
+  <meta property="og:image" content="https://promptgalary.com/asset/preview.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://promptgalary.com/contact">
+  <meta property="twitter:title" content="Contact Prompt Gallery">
+  <meta property="twitter:description" content="Get in touch for questions about AI prompts, technical issues, copyright concerns, or business inquiries.">
+  <meta property="twitter:image" content="https://promptgalary.com/asset/preview.png">
+
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
     /* ===== modern baseline ===== */
     * {
@@ -38,7 +64,6 @@
 
     main {
       flex: 1 0 auto;
-      /* completely empty – no text, no placeholders */
     }
 
     /* ---------- refined NAVBAR (softer, balanced, precise) ---------- */
@@ -142,7 +167,7 @@
       display: none;
       position: absolute;
       top: calc(100% + 10px);
-      right: 0;               /* aligns to right edge — stays in view */
+      right: 0;
       left: auto;
       background: #ffffff;
       min-width: 220px;
@@ -208,7 +233,292 @@
       box-shadow: 0 6px 12px -10px #2563eb;
     }
 
-    /* ---------- FOOTER (desktop first) ---------- */
+    /* ---------- CONTACT PAGE STYLES ---------- */
+    .contact-hero {
+      text-align: center;
+      padding: 3rem 1.5rem 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1e2532;
+      margin-bottom: 1rem;
+    }
+
+    .contact-hero p {
+      font-size: 1.1rem;
+      color: #3e4e64;
+      line-height: 1.6;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    /* Contact Cards */
+    .contact-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02);
+      height: fit-content;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 620;
+      color: #1e293b;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title i {
+      color: #2563eb;
+    }
+
+    .reason-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .reason-list li {
+      padding: 0.5rem 0 0.5rem 1.8rem;
+      position: relative;
+      color: #2d3d55;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .reason-list li:last-child {
+      border-bottom: none;
+    }
+
+    .reason-list li:before {
+      content: "•";
+      color: #2563eb;
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -0.1rem;
+    }
+
+    /* Email Form */
+    .email-form {
+      margin-top: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #dde2ea;
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #fafbfd;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px #2563eb20;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .send-btn {
+      background: #1e293b;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .send-btn i {
+      font-size: 1rem;
+    }
+
+    .send-btn:hover {
+      background: #0f172a;
+      transform: scale(1.02);
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: #657386;
+      margin-top: 0.8rem;
+      text-align: center;
+    }
+
+    /* Copyright Section */
+    .copyright-card {
+      background: #f8fafd;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin: 2rem 0 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .copyright-card h3 {
+      font-size: 1.2rem;
+      font-weight: 620;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copyright-card p {
+      color: #2d3d55;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .copyright-card i {
+      color: #2563eb;
+      width: 20px;
+    }
+
+    .response-time {
+      background: #e6f0ff;
+      border-radius: 60px;
+      padding: 0.8rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #1e293b;
+      margin: 1rem 0;
+    }
+
+    /* Social Links Section */
+    .social-contact-section {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02);
+    }
+
+    .social-contact-section h3 {
+      font-size: 1.2rem;
+      font-weight: 620;
+      color: #1e293b;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.7rem 1.2rem;
+      background: #f8fafd;
+      border-radius: 60px;
+      text-decoration: none;
+      color: #2d3a4f;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+      transition: all 0.15s;
+    }
+
+    .contact-social-btn i {
+      font-size: 1rem;
+    }
+
+    .contact-social-btn:hover {
+      background: white;
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+
+    /* Quick contact */
+    .quick-contact {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eef2f6;
+    }
+
+    .quick-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.5rem 0;
+      color: #334155;
+    }
+
+    .quick-contact-item i {
+      color: #2563eb;
+      width: 20px;
+    }
+
+    .quick-contact-item a {
+      color: #334155;
+      text-decoration: none;
+    }
+
+    .quick-contact-item a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    /* ---------- FOOTER (unchanged) ---------- */
     .footer {
       background: #ffffff;
       border-top: 1px solid #edf0f5;
@@ -228,7 +538,6 @@
       gap: 0.3rem 1rem;
     }
 
-    /* left block: site name + inline nav links (desktop) */
     .footer-left {
       display: flex;
       align-items: center;
@@ -272,7 +581,6 @@
       border-bottom-color: #a7b5cc;
     }
 
-    /* right block: social icons + extra links */
     .footer-right {
       display: flex;
       align-items: center;
@@ -340,23 +648,22 @@
       color: #1a253b;
     }
 
-    /* ===== ULTRA COMPACT 2‑LINE MOBILE FOOTER (minimal height) ===== */
+    /* ===== ULTRA COMPACT 2‑LINE MOBILE FOOTER ===== */
     @media screen and (max-width: 900px) {
       .footer {
-        padding: 0.15rem 0.6rem;  /* drastically reduced vertical padding */
+        padding: 0.15rem 0.6rem;
       }
       .footer-content {
         flex-direction: column;
         align-items: stretch;
         gap: 0.1rem;
       }
-      /* line 1: promptgalary.com bigger, but with tiny top/bottom margin */
       .footer-left {
         width: 100%;
         display: block;
       }
       .footer-site-name {
-        font-size: 1.1rem;        /* slightly smaller than before to reduce line height */
+        font-size: 1.1rem;
         display: block;
         line-height: 1.1;
         margin: 0.1rem 0 0 0;
@@ -366,10 +673,8 @@
         background-clip: text;
       }
       .footer-left .footer-nav-links {
-        display: none;  /* hide desktop nav links here */
+        display: none;
       }
-
-      /* line 2 container: all mini links in two tight sublines */
       .footer-right {
         width: 100%;
         flex-direction: column;
@@ -377,45 +682,28 @@
         gap: 0.1rem;
         margin-top: 0;
       }
-
-      /* first subline: nav links (mini) */
       .mobile-nav-links {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 0.15rem 0.4rem;      /* tighter gaps */
+        gap: 0.15rem 0.4rem;
         width: 100%;
         line-height: 1;
       }
       .mobile-nav-links a {
         color: #5a6b82;
         text-decoration: none;
-        font-size: 0.6rem;        /* extra small */
+        font-size: 0.6rem;
         font-weight: 470;
         white-space: nowrap;
         padding: 0 0.1rem;
         border-bottom: 1px solid transparent;
-        transition: color 0.15s;
-      }
-      .mobile-nav-links a:hover {
-        color: #1d2a40;
-        border-bottom-color: #9aabbf;
-      }
-
-      /* second subline: social icons + extra inline (tight) */
-      .mobile-social-block {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.1rem 0.3rem;
-        width: 100%;
-        line-height: 1;
       }
       .social-links {
         gap: 0.1rem;
       }
       .social-links a {
-        width: 1.25rem;           /* smaller icon buttons */
+        width: 1.25rem;
         height: 1.25rem;
         font-size: 0.65rem;
         background: #f0f4fc;
@@ -426,22 +714,18 @@
         gap: 0.2rem;
       }
       .footer-extra-compact a {
-        font-size: 0.58rem;        /* tiny */
+        font-size: 0.58rem;
         padding: 0.05rem 0.4rem;
         background: #f0f4fc;
-        line-height: 1.2;
       }
     }
 
-    /* even more compression for very small screens (<=480px) */
     @media screen and (max-width: 480px) {
       .footer {
         padding: 0.1rem 0.5rem;
       }
       .footer-site-name {
         font-size: 1.0rem;
-        line-height: 1;
-        margin: 0.05rem 0;
       }
       .mobile-nav-links a {
         font-size: 0.55rem;
@@ -451,13 +735,9 @@
         height: 1.15rem;
         font-size: 0.6rem;
       }
-      .footer-extra-compact a {
-        font-size: 0.52rem;
-        padding: 0 0.3rem;
-      }
     }
 
-    /* ---------- navbar mobile unchanged ---------- */
+    /* navbar mobile unchanged */
     @media screen and (max-width: 800px) {
       .navbar {
         padding: 0.5rem 1.2rem;
@@ -549,7 +829,6 @@
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
 
-      <!-- LEGAL DROPDOWN: right-aligned, viewport-safe -->
       <div class="dropdown" id="legalDropdown">
         <button class="dropbtn">Legal <i class="fas fa-chevron-down"></i></button>
         <div class="dropdown-content">
@@ -561,16 +840,113 @@
     </div>
   </nav>
 
-  <!-- MAIN – ABSOLUTELY EMPTY (as required) -->
-  <main></main>
+  <!-- MAIN CONTACT PAGE CONTENT -->
+  <main>
+    <section class="contact-hero">
+      <h1>Get in Touch</h1>
+      <p>Have questions about AI prompts, technical issues, or business inquiries? We're here to help.</p>
+    </section>
 
-  <!-- FOOTER – ultra compact mobile (2 lines with tiny text) -->
+    <div class="contact-container">
+      <div class="contact-grid">
+        <!-- Left Column - Contact Reasons & Copyright -->
+        <div>
+          <!-- 1. Clear Purpose Card -->
+          <div class="contact-card">
+            <h2 class="card-title"><i class="fas fa-envelope"></i> Why Contact Us</h2>
+            <ul class="reason-list">
+              <li>Questions about AI prompts and how to use them</li>
+              <li>Reporting technical issues or bugs</li>
+              <li>Copyright concerns or content removal requests</li>
+              <li>Business inquiries and collaborations</li>
+              <li>General feedback and suggestions</li>
+            </ul>
+
+            <!-- Response Time -->
+            <div class="response-time">
+              <i class="fas fa-clock"></i> We aim to respond within 24–48 hours
+            </div>
+          </div>
+
+          <!-- 3. Copyright / Content Removal Section -->
+          <div class="copyright-card">
+            <h3><i class="fas fa-copyright"></i> Copyright & Content Removal</h3>
+            <p>If you believe any content on this site violates your rights or uses copyrighted material without permission, please contact us with:</p>
+            <p><i class="fas fa-chevron-right"></i> Your full name and contact information</p>
+            <p><i class="fas fa-chevron-right"></i> Description of the copyrighted work</p>
+            <p><i class="fas fa-chevron-right"></i> URL of the content on our site</p>
+            <p><i class="fas fa-chevron-right"></i> Proof of ownership or authorization</p>
+            <p style="margin-top: 1rem; font-weight: 500;">We review all requests and take appropriate action within 48 hours.</p>
+          </div>
+        </div>
+
+        <!-- Right Column - Email Form & Social -->
+        <div>
+          <!-- 2. Email Form Card -->
+          <div class="contact-card">
+            <h2 class="card-title"><i class="fas fa-paper-plane"></i> Send a Message</h2>
+            <p style="color: #4a5a70; margin-bottom: 1.5rem;">Fill out the form and it will open in your email app.</p>
+
+            <form class="email-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Question about prompts" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+              </div>
+
+              <button type="button" class="send-btn" id="sendEmailBtn">
+                <i class="fas fa-envelope-open-text"></i> Open in Email
+              </button>
+              <p class="form-note">Clicking send will open your default email app with all details filled.</p>
+            </form>
+          </div>
+
+          <!-- Social Links Section -->
+          <div class="social-contact-section">
+            <h3><i class="fas fa-hashtag"></i> Connect on Social Media</h3>
+            <div class="contact-social-grid">
+              <a href="https://www.facebook.com/profile.php?id=61556686528782" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-facebook-f"></i> Page</a>
+              <a href="https://www.facebook.com/sanvi.al.evan" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-facebook"></i> Profile</a>
+              <a href="https://github.com/sanvi009" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.tiktok.com/@brainloom.online" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+              <a href="https://www.threads.com/@_brainloom.online" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-threads"></i> Threads</a>
+              <a href="https://www.instagram.com/_brainloom.online/" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+              <a href="https://t.me/brainloomonline" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-telegram-plane"></i> Telegram</a>
+              <a href="https://www.youtube.com/@brainloom.online" target="_blank" rel="noopener" class="contact-social-btn"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
+
+            <!-- Direct Email -->
+            <div class="quick-contact">
+              <div class="quick-contact-item">
+                <i class="far fa-envelope"></i>
+                <a href="mailto:sanvialevan2121@gmail.com">sanvialevan2121@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-content">
-      <!-- part 1 (line 1): promptgalary.com bigger (takes full width on mobile) -->
       <div class="footer-left">
         <span class="footer-site-name">Promptgalary.com</span>
-        <!-- desktop nav links hidden on mobile via media query -->
         <div class="footer-nav-links">
           <a href="/">Home</a>
           <a href="/prompts">Prompts</a>
@@ -582,9 +958,7 @@
         </div>
       </div>
 
-      <!-- part 2 (line 2) will be filled on mobile with two sublines -->
       <div class="footer-right">
-        <!-- desktop social + extra -->
         <div class="social-links">
           <a href="https://www.facebook.com/profile.php?id=61556686528782" target="_blank" rel="noopener" aria-label="Facebook page"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.facebook.com/sanvi.al.evan" target="_blank" rel="noopener" aria-label="Facebook profile"><i class="fab fa-facebook"></i></a>
@@ -604,9 +978,10 @@
     <div class="footer-micro"></div>
   </footer>
 
-  <!-- minimal JS for mobile toggle + mobile footer injection (kept exactly as improved version) -->
+  <!-- JavaScript -->
   <script>
     (function() {
+      // Menu toggle functionality (unchanged)
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
       const dropdown = document.getElementById('legalDropdown');
@@ -629,10 +1004,8 @@
         });
       }
 
-      // IMPROVED: Close mobile menu when clicking outside
       document.addEventListener('click', function(e) {
         if (window.innerWidth <= 800) {
-          // Check if click is outside both the menu toggle button and the nav links
           if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('show');
             dropdown.classList.remove('active');
@@ -640,7 +1013,6 @@
         }
       });
 
-      // Prevent clicks inside navLinks from closing it (they'll close via link clicks)
       if (navLinks) {
         navLinks.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -664,7 +1036,29 @@
         });
       }
 
-      // mobile footer: inject nav links into line 2 dynamically
+      // Email form functionality - opens in default email app
+      const sendBtn = document.getElementById('sendEmailBtn');
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function() {
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const subject = document.getElementById('subject').value;
+          const message = document.getElementById('message').value;
+
+          if (!name || !email || !subject || !message) {
+            alert('Please fill in all fields before sending.');
+            return;
+          }
+
+          const mailtoLink = `mailto:sanvialevan2121@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+          )}`;
+
+          window.location.href = mailtoLink;
+        });
+      }
+
+      // Mobile footer injection (unchanged)
       function adjustMobileFooter() {
         const footerRight = document.querySelector('.footer-right');
         if (!footerRight) return;
@@ -695,6 +1089,5 @@
       adjustMobileFooter();
     })();
   </script>
-  <!-- all original paths maintained plus all social links -->
 </body>
 </html>
