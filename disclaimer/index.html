@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 
-
    <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCG2EZ77R6"></script>
   <script>
@@ -16,7 +15,33 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Prompt Gallery · refined dropdown</title>
+  
+  <!-- Primary Meta Tags -->
+  <title>Disclaimer · Prompt Gallery</title>
+  <meta name="title" content="Disclaimer · Prompt Gallery">
+  <meta name="description" content="Disclaimer for Prompt Galary. Read about AI-generated content, external links, and limitations of liability for our AI image prompts.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/asset/favicon.png">
+  <link rel="shortcut icon" href="/asset/favicon.png">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://promptgalary.com/disclaimer">
+  <meta property="og:title" content="Disclaimer · Prompt Gallery">
+  <meta property="og:description" content="Disclaimer for Prompt Galary. Read about AI-generated content, external links, and limitations of liability for our AI image prompts.">
+  <meta property="og:image" content="https://promptgalary.com/asset/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://promptgalary.com/disclaimer">
+  <meta property="twitter:title" content="Disclaimer · Prompt Gallery">
+  <meta property="twitter:description" content="Disclaimer for Prompt Galary. Read about AI-generated content, external links, and limitations of liability for our AI image prompts.">
+  <meta property="twitter:image" content="https://promptgalary.com/asset/preview.png">
+  
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -39,7 +64,10 @@
 
     main {
       flex: 1 0 auto;
-      /* completely empty – no text, no placeholders */
+      padding: 2rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     /* ---------- refined NAVBAR (softer, balanced, precise) ---------- */
@@ -534,6 +562,78 @@
         animation: fadeSlide 0.18s ease;
       }
     }
+
+    /* Disclaimer container styling - keeps content readable without changing UI */
+    .disclaimer-container {
+      background: white;
+      border-radius: 32px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.02);
+      margin-top: 1rem;
+      color: #2d3d55;
+      line-height: 1.6;
+    }
+
+    .disclaimer-container h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e2532;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .disclaimer-container h2 {
+      font-size: 1.5rem;
+      font-weight: 620;
+      color: #1e293b;
+      margin: 2rem 0 1rem;
+    }
+
+    .disclaimer-container h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 1.5rem 0 0.8rem;
+    }
+
+    .disclaimer-container p {
+      margin-bottom: 1rem;
+      color: #2d3d55;
+    }
+
+    .disclaimer-container ul, .disclaimer-container ol {
+      margin: 1rem 0 1.5rem 2rem;
+    }
+
+    .disclaimer-container li {
+      margin-bottom: 0.5rem;
+    }
+
+    .disclaimer-container a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .disclaimer-container a:hover {
+      text-decoration: underline;
+    }
+
+    .disclaimer-date {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    @media (max-width: 700px) {
+      .disclaimer-container {
+        padding: 1.5rem;
+      }
+      .disclaimer-container h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -562,8 +662,35 @@
     </div>
   </nav>
 
-  <!-- MAIN – ABSOLUTELY EMPTY (as required) -->
-  <main></main>
+  <!-- MAIN – DISCLAIMER CONTENT -->
+  <main>
+    <div class="disclaimer-container">
+      <h1>Disclaimer</h1>
+      <div class="disclaimer-date">Last Updated: 4 mar 2026</div>
+
+      <p>The information provided by <strong>Prompt Galary</strong> ("we," "our," or "us") on this website is for general informational and creative purposes only. All content, including AI image prompts, written descriptions, and example images, is published in good faith. However, we make no warranties or representations of any kind, express or implied, regarding the accuracy, adequacy, reliability, availability, or completeness of any content on the website.</p>
+
+      <p>Your use of the website and reliance on any information is solely at your own risk. Under no circumstances shall Prompt Galary be held liable for any loss or damage of any kind incurred as a result of using the website or relying on any information provided.</p>
+
+      <h2>AI-Generated Content Disclaimer</h2>
+      <p>Prompt Galary shares AI image prompts and related example outputs for creative and educational purposes. Results generated using these prompts may vary significantly depending on the AI platform, software version, model configuration, user input, and other technical factors.</p>
+      <p>We do not guarantee that any prompt published on this website will produce identical, specific, or expected results. AI technologies evolve rapidly, and output behavior may change over time.</p>
+      <p>Unless explicitly stated, Prompt Galary is not affiliated with, endorsed by, or officially connected to any AI platform, tool, or service referenced on the website.</p>
+
+      <h2>External Links Disclaimer</h2>
+      <p>This website may contain links to third-party websites or services for reference or additional information. While we strive to provide quality links, we have no control over the content, accuracy, policies, or practices of external sites.</p>
+      <p>Prompt Galary does not assume responsibility for any content, privacy practices, or activities of third-party websites. Accessing external links is done at your own discretion and risk.</p>
+
+      <h2>No Professional Advice</h2>
+      <p>The content provided on this website does not constitute legal, financial, business, or professional advice of any kind. All information is offered solely for educational and creative purposes. Users should conduct their own research and consult appropriate professionals where necessary.</p>
+
+      <h2>Changes to This Disclaimer</h2>
+      <p>We reserve the right to update, modify, or change this Disclaimer at any time without prior notice. Continued use of the website after changes are posted constitutes acceptance of those changes.</p>
+
+      <h2>Contact</h2>
+      <p>If you have any questions regarding this Disclaimer, please contact us through the <a href="/contact">Contact page</a> of the website.</p>
+    </div>
+  </main>
 
   <!-- FOOTER – ultra compact mobile (2 lines with tiny text) -->
   <footer class="footer">
