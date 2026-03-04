@@ -13,10 +13,36 @@
     gtag('config', 'G-KCG2EZ77R6');
   </script>
 
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <!-- Primary Meta Tags -->
   <title>Prompt Gallery · structured AI prompt library</title>
+  <meta name="title" content="Prompt Gallery · structured AI prompt library">
+  <meta name="description" content="Professional AI image prompts with tested structures (lighting, composition, lens, mood) that AI models understand instantly. Less guesswork, more control.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/asset/favicon.png">
+  <link rel="shortcut icon" href="/asset/favicon.png">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://promptgalary.com">
+  <meta property="og:title" content="Prompt Gallery · structured AI prompt library">
+  <meta property="og:description" content="Professional AI image prompts with tested structures (lighting, composition, lens, mood) that AI models understand instantly. Less guesswork, more control.">
+  <meta property="og:image" content="https://promptgalary.com/asset/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://promptgalary.com">
+  <meta property="twitter:title" content="Prompt Gallery · structured AI prompt library">
+  <meta property="twitter:description" content="Professional AI image prompts with tested structures (lighting, composition, lens, mood) that AI models understand instantly. Less guesswork, more control.">
+  <meta property="twitter:image" content="https://promptgalary.com/asset/preview.png">
+
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -202,6 +228,61 @@
       background: #f9fcff;
       border-color: #b7c3d4;
       box-shadow: 0 6px 12px -10px #2563eb;
+    }
+
+    /* ---------- HERO IMAGE STYLES ---------- */
+    .hero-image-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-image.lazy-load {
+      opacity: 0;
+    }
+
+    .hero-image.lazy-loaded {
+      opacity: 1;
+    }
+
+    .hero-image-title {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 0.6rem;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-image-container {
+        padding: 0 1rem;
+        margin-top: 1.8rem;
+        border-radius: 18px;
+      }
+
+      .hero-image {
+        border-radius: 14px;
+      }
+
+      .hero-image-title {
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+      }
     }
 
     /* ---------- FOOTER (mobile improved only — clean, compact, less messy) ---------- */
@@ -800,6 +881,12 @@
         Not just keywords — our prompts use tested structures (lighting, composition, lens, mood) that AI models understand instantly. Less guesswork, more control.
       </div>
       <a href="/prompts/" class="btn-primary">Explore Our Prompts →</a>
+
+      <!-- Hero Image added here -->
+      <div class="hero-image-container">
+        <img data-src="/asset/home.webp" alt="AI generated examples from our prompt library" class="hero-image lazy-load" width="1920" height="1080">
+        <div class="hero-image-title">✨ Example results from our prompt library — cinematic, product, portrait, and concept art styles</div>
+      </div>
     </section>
 
     <!-- 2️⃣ TRUST / AUTHORITY — expanded with bullet points & structure, no box -->
@@ -936,7 +1023,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript (unchanged but improved mobile footer generation) -->
+  <!-- JavaScript (unchanged but improved mobile footer generation + lazy loading) -->
   <script>
     (function() {
       const menuToggle = document.getElementById('menuToggle');
@@ -1018,6 +1105,36 @@
       window.addEventListener('resize', buildMobileFooter);
       window.addEventListener('load', buildMobileFooter);
       buildMobileFooter();
+
+      // ========== LAZY LOADING FOR IMAGES ==========
+      // Use Intersection Observer for performance
+      const lazyImages = document.querySelectorAll('img.lazy-load');
+
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.remove('lazy-load');
+              img.classList.add('lazy-loaded');
+              imageObserver.unobserve(img);
+            }
+          });
+        }, {
+          rootMargin: '50px 0px', // Load when within 50px of viewport
+          threshold: 0.01
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+      } else {
+        // Fallback for older browsers
+        lazyImages.forEach(img => {
+          img.src = img.dataset.src;
+          img.classList.remove('lazy-load');
+          img.classList.add('lazy-loaded');
+        });
+      }
     })();
   </script>
 </body>
