@@ -1,1 +1,599 @@
-<h1>under construction</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Expert answers to 80+ visa and immigration questions. Research-based, practical guidance for moving abroad, PR, work permits, study visas, and life after arrival.">
+  <meta name="robots" content="index, follow">
+  <title>Migration & Visa FAQ | Expert Immigration Knowledge Hub</title>
+  <link rel="canonical" href="https://yourdomain.com/immigration-faq">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      background: #f9fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* header / hero */
+    .hero {
+      background: linear-gradient(135deg, #0f2b3d 0%, #1b4a6e 100%);
+      color: white;
+      padding: 3rem 0 2.5rem;
+      border-radius: 0 0 2rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+
+    .last-updated {
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 40px;
+      margin-top: 0.5rem;
+    }
+
+    .disclaimer-badge {
+      background: #eef2ff;
+      color: #1e3a8a;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      margin-top: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* search & sticky nav */
+    .search-wrapper {
+      background: white;
+      border-radius: 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 0.2rem 0.2rem 0.2rem 1.2rem;
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .search-wrapper i {
+      color: #5b6e8c;
+      font-size: 1.2rem;
+    }
+
+    #searchInput {
+      border: none;
+      padding: 0.9rem 0.8rem;
+      font-size: 1rem;
+      width: 100%;
+      background: transparent;
+      outline: none;
+      font-weight: 500;
+    }
+
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      background: white;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #e9edf2;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 20;
+    }
+
+    .cat-link {
+      background: #f1f5f9;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1e293b;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cat-link:hover, .cat-link:focus {
+      background: #1e4a6e;
+      color: white;
+    }
+
+    /* faq sections */
+    .faq-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      border-left: 5px solid #2c7da0;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s;
+      border: 1px solid #eef2f6;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+      background: white;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: #f8fafd;
+    }
+
+    .faq-question i {
+      color: #5b6e8c;
+      transition: transform 0.25s ease;
+      font-size: 1.1rem;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out, padding 0.2s;
+      padding: 0 1.5rem;
+      background: #ffffff;
+      border-top: 0px solid #eef2f6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;   /* enough for short answers */
+      padding: 0 1.5rem 1.2rem 1.5rem;
+      border-top-width: 1px;
+    }
+
+    .faq-answer p {
+      margin-top: 0.5rem;
+      color: #2d3a4b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .faq-answer a {
+      color: #1e6f9f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .faq-answer a:hover {
+      text-decoration: underline;
+    }
+
+    /* popular questions */
+    .popular-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.8rem 0 1rem;
+    }
+    .popular-badge {
+      background: #eef2ff;
+      border-radius: 40px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .popular-badge:hover {
+      background: #d9e4ff;
+      transform: translateY(-2px);
+    }
+
+    /* contact & footer */
+    .contact-card {
+      background: #eef3fa;
+      border-radius: 1.8rem;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0 2rem;
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #1e4a6e;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #1e4a6e;
+    }
+    .footer-cta {
+      background: #0f2b3d;
+      color: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-cta a {
+      color: #ffd966;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .global-disclaimer {
+      font-size: 0.75rem;
+      text-align: center;
+      margin: 2rem 0 1.5rem;
+      color: #5b6e8c;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.5rem;
+    }
+    @media (max-width: 680px) {
+      .container {
+        padding: 0 1rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .faq-question {
+        padding: 1rem 1.2rem;
+        font-size: 0.95rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container">
+    <h1>📘 Frequently Asked Questions About Moving Abroad & Visa Process</h1>
+    <div class="subtitle">Clear, research-based answers — from visa applications to settling in a new country. Trusted by future expats worldwide.</div>
+    <div class="last-updated"><i class="far fa-calendar-alt"></i> Last Updated: March 2026</div>
+    <div class="disclaimer-badge"><i class="fas fa-shield-alt"></i> Information based on official sources & immigration policies. Always verify with government portals.</div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Popular questions (optional) -->
+  <div>
+    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">⭐ Popular questions</h3>
+    <div class="popular-grid" id="popularList">
+      <span class="popular-badge" data-qtext="What is the easiest country to immigrate to?">🌍 Easiest countries</span>
+      <span class="popular-badge" data-qtext="How much money do I need to move abroad?">💰 Cost to move</span>
+      <span class="popular-badge" data-qtext="What happens if my visa gets rejected?">❌ Visa rejection</span>
+      <span class="popular-badge" data-qtext="Can I move abroad without a job offer?">🎯 No job offer?</span>
+      <span class="popular-badge" data-qtext="What is permanent residency (PR)?">🏡 Permanent residency</span>
+    </div>
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-wrapper">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search questions... e.g., PR, IELTS, blocked account, sponsorship">
+  </div>
+
+  <!-- Sticky category navigation -->
+  <div class="category-nav" id="categoryNav">
+    <a href="#general" class="cat-link">General</a>
+    <a href="#visa-process" class="cat-link">Visa & Process</a>
+    <a href="#costs" class="cat-link">Costs & Finance</a>
+    <a href="#study-work" class="cat-link">Study & Work</a>
+    <a href="#life-after" class="cat-link">Life After Arrival</a>
+    <a href="#about-site" class="cat-link">About This Site</a>
+  </div>
+
+  <!-- FAQ SECTIONS (organized) -->
+  <div id="general" class="faq-section">
+    <h2 class="section-title">📌 General Immigration Questions</h2>
+    <div class="faq-grid" id="faqGeneral"></div>
+  </div>
+  <div id="visa-process" class="faq-section">
+    <h2 class="section-title">📄 Visa & Application Process</h2>
+    <div class="faq-grid" id="faqVisa"></div>
+  </div>
+  <div id="costs" class="faq-section">
+    <h2 class="section-title">💰 Costs & Financial Requirements</h2>
+    <div class="faq-grid" id="faqCosts"></div>
+  </div>
+  <div id="study-work" class="faq-section">
+    <h2 class="section-title">🎓 Study & Work Abroad</h2>
+    <div class="faq-grid" id="faqStudyWork"></div>
+  </div>
+  <div id="life-after" class="faq-section">
+    <h2 class="section-title">🏡 Life After Arrival</h2>
+    <div class="faq-grid" id="faqLife"></div>
+  </div>
+  <div id="about-site" class="faq-section">
+    <h2 class="section-title">🔍 About This Website</h2>
+    <div class="faq-grid" id="faqAbout"></div>
+  </div>
+
+  <!-- Still have questions? -->
+  <div class="contact-card">
+    <i class="fas fa-envelope-open-text" style="font-size: 2rem; color: #1e4a6e;"></i>
+    <h3 style="margin: 0.5rem 0;">Still have questions?</h3>
+    <p>Our migration knowledge base is constantly expanding. Reach out through our contact page or suggest a guide topic.</p>
+    <a href="/contact" class="btn-outline"><i class="fas fa-comment"></i> Contact us</a>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="footer-cta">
+    <i class="fas fa-globe-americas" style="font-size: 2rem;"></i>
+    <p style="margin: 0.5rem 0 0.8rem; font-size: 1.1rem;">Explore detailed country guides for step-by-step immigration help</p>
+    <a href="#">🇨🇦 Canada PR Guide &nbsp;→</a>&nbsp;&nbsp;<a href="#">🇦🇺 Australia Visa &nbsp;→</a>&nbsp;&nbsp;<a href="#">🇩🇪 Germany Opportunity &nbsp;→</a>
+  </div>
+  <div class="global-disclaimer">
+    <i class="fas fa-exclamation-triangle"></i> This website provides independent information for guidance only. It is not a government or legal entity. Visa decisions are made solely by immigration authorities. Always double-check with official embassy websites.
+  </div>
+</div>
+
+<script>
+  // ----- All 80 Q&As mapped to categories (short answers, internal links, bold highlights)
+  const faqData = {
+    general: [
+      { q: "What is the easiest country to immigrate to?", a: "<strong>Canada, Australia, and Germany</strong> have structured programs. 'Easiest' depends on your profile. Check <a href='/country-guides/canada'>Canada’s Express Entry</a> for a points-based pathway." },
+      { q: "Can I move abroad without a job offer?", a: "Yes! Countries like <strong>Germany (job seeker visa)</strong> and Canada (Express Entry) allow migration without a prior offer. Learn more in our <a href='/job-seeker-visa-guide'>Job Seeker Visa guide</a>." },
+      { q: "Is it possible to migrate without a degree?", a: "Absolutely. Many skilled trades and work experience programs (e.g., <strong>Australia TSS visa</strong>) accept non-degree holders. Explore <a href='/skilled-migration'>skilled migration routes</a>." },
+      { q: "What is permanent residency (PR)?", a: "PR lets you live, work, and study long‑term without citizenship. It’s a stepping stone to naturalisation. Read <a href='/pr-explained'>PR explained</a>." },
+      { q: "How long does it take to get PR?", a: "6 months to several years. <strong>Canada: ~6-12 months</strong>, Australia: 12-18 months. Timelines vary by program." },
+      { q: "Can I convert a student visa into PR?", a: "Yes, common pathways exist in <strong>Canada (PGWP → CEC)</strong> and Australia (485 visa → PR). See <a href='/student-to-pr'>student to PR roadmap</a>." },
+      { q: "Can I become a citizen after moving?", a: "Usually after 3–5 years of residency, passing language & knowledge tests. Check our <a href='/citizenship-guide'>citizenship guides</a>." },
+      { q: "What is the difference between a visa and a residence permit?", a: "A <strong>visa</strong> grants entry; a <strong>residence permit</strong> allows long-term stay. Many countries issue both." },
+      { q: "What is a points-based immigration system?", a: "Scores based on age, education, work, language. Higher points = better chances. <strong>Canada, Australia, NZ</strong> use it." },
+      { q: "Can I apply for multiple countries at the same time?", a: "Yes, but each application must be truthful. Ensure you meet financial/legal requirements for all." },
+      { q: "Can I apply for PR directly without studying abroad?", a: "Yes, skilled migration programs (like <strong>Canada FSW</strong>) allow direct PR application." },
+      { q: "What is dual intent in immigration?", a: "Applying for temporary and permanent residency at once (allowed in Canada). You can visit while PR is processed." },
+      { q: "Can I lose my PR status?", a: "Yes, if you don’t meet residency obligations or commit serious crimes. <a href='/maintain-pr-status'>Maintain PR status guide</a>." },
+      { q: "What is deportation and how can it be avoided?", a: "Forced removal due to violating immigration laws. Follow visa conditions & renew permits on time." }
+    ],
+    visa: [
+      { q: "Which visa is best for permanent settlement?", a: "<strong>Permanent residency visas</strong> (Canada PR, Australia 189/190) are ideal. Check eligibility via our <a href='/pr-eligibility'>PR assessment tool</a>." },
+      { q: "How long does the visa process take?", a: "From weeks (tourist) to months (work/PR). Skilled visas: 4-12 months. Always plan ahead." },
+      { q: "What documents are required for a visa application?", a: "Passport, financial proof, educational certs, work experience, language tests (<strong>IELTS/TOEFL</strong>)." },
+      { q: "What is proof of funds?", a: "Bank statements, scholarship letters, or blocked account showing you can support yourself." },
+      { q: "Do I need IELTS or other language tests?", a: "For many study and PR visas, yes. Minimum scores vary. See <a href='/language-tests'>language test matrix</a>." },
+      { q: "Can I bring my family with me?", a: "Most work/study visas allow dependents. You need additional funds." },
+      { q: "What happens if my visa gets rejected?", a: "Reapply after fixing errors or appeal (if allowed). Avoid repeated rejections." },
+      { q: "How can I avoid visa rejection?", a: "Submit accurate docs, strong finances, clear SOP. Never use fake documents." },
+      { q: "What is a statement of purpose (SOP)?", a: "An essay explaining your intentions and future plans. Crucial for study visas." },
+      { q: "What is a blocked account?", a: "German-style account where funds are locked and released monthly (~€11k/year)." },
+      { q: "Are immigration agents necessary?", a: "No, you can apply yourself via official portals. Use our free <a href='/diy-guides'>DIY guides</a>." },
+      { q: "What is visa sponsorship?", a: "An employer supports your work visa application. Popular for US H-1B, UK Skilled Worker." },
+      { q: "What is the minimum bank balance for student visas?", a: "Canada: ~$10k CAD; Germany: €11k; Australia: $24k AUD (varies)." },
+      { q: "Do visa officers check social media accounts?", a: "Some countries (US) ask for social handles. Stay consistent with your application." },
+      { q: "What is a visa interview and how to prepare?", a: "Short consular interview. Be honest, know your course/job, bring original docs." },
+      { q: "Can I change my visa type after arriving?", a: "In many countries (Canada, Australia), you can switch from student to work if eligible." },
+      { q: "What happens if I overstay my visa?", a: "Fines, deportation, re-entry bans (up to several years). Always extend or leave on time." },
+      { q: "What is a work permit vs visa?", a: "Visa = entry; work permit = legal work authorization. Some visas include work rights." },
+      { q: "What is a dependent visa?", a: "Allows family members (spouse/children) to join the main visa holder." },
+      { q: "How important is work experience for immigration?", a: "Critical for skilled programs. More years = higher points." },
+      { q: "Can I migrate with low English skills?", a: "Yes, but fewer options. Some countries offer language training pathways." },
+      { q: "What is a visa extension?", a: "Extend your stay without leaving. Apply before current visa expires." },
+      { q: "What is the difference between embassy and consulate?", a: "Embassies (capital) handle diplomacy; consulates offer visa services in other cities." },
+      { q: "Can I apply for a visa without a passport?", a: "No, a valid passport is mandatory for all international travel visas." },
+      { q: "What is a biometric appointment?", a: "Fingerprints and photo for identity verification. Required for many countries." },
+      { q: "What is visa processing backlog?", a: "Delays due to high volume. Apply early and track average processing times." },
+      { q: "Can I get a refund if my visa is rejected?", a: "Visa fees are <strong>non-refundable</strong> in almost all cases." },
+      { q: "What is travel history and why does it matter?", a: "Shows compliance with past visas. Good history builds trust." },
+      { q: "What is a gap year and does it affect visa approval?", a: "Explain any gap (study or work break) in your SOP to avoid suspicion." },
+      { q: "What is a sponsorship letter?", a: "Document where a person/organisation guarantees financial support." },
+      { q: "What are visa quotas?", a: "Annual limits on certain visa categories (e.g., US H-1B). Apply early." },
+      { q: "What is a bridging visa?", a: "Maintains lawful status while waiting for a new visa decision." },
+      { q: "Can I reapply immediately after rejection?", a: "Yes, but fix the reason for refusal first." },
+      { q: "What is the role of immigration lawyers?", a: "Legal help for appeals, complex cases. Not mandatory for simple apps." }
+    ],
+    costs: [
+      { q: "How much money do I need to move abroad?", a: "Canada: $10k-15k CAD; Germany: €11k (blocked account); Australia: $5k-10k+ AUD. <strong>Depends on visa</strong>." },
+      { q: "Which country has the cheapest study visa?", a: "<strong>Germany</strong> (low/no tuition + €11k blocked account). France, Norway also affordable." },
+      { q: "What is a blocked account?", a: "German requirement: funds locked, monthly release (~€992/month). Used as proof of financial resources." },
+      { q: "What is the minimum bank balance for student visas?", a: "Canada: $20,635 CAD (2026), Australia: ~$24k AUD, Germany: €11,904." }
+    ],
+    studywork: [
+      { q: "Can I work while studying abroad?", a: "Yes, most countries allow <strong>20 hours/week</strong> during semesters, full-time during breaks." },
+      { q: "What is a job seeker visa?", a: "Allows entry to search for work without a job offer. Germany, Austria, UAE offer it." },
+      { q: "Which country has the cheapest study visa?", a: "Germany leads with low tuition + affordable living. Read <a href='/study-germany'>Germany study guide</a>." },
+      { q: "Can I convert a student visa into PR?", a: "Many countries have graduate work streams leading to PR (Canada CEC, Australia 189/190)." },
+      { q: "What are the best countries for work opportunities?", a: "Canada, Germany, Australia, UK — strong job markets and post-study work visas." },
+      { q: "How can I find jobs abroad?", a: "LinkedIn, Indeed, local job portals, networking, and company career pages." },
+      { q: "What is visa sponsorship?", a: "Employer supports your work visa. Look for companies with sponsorship licenses." },
+      { q: "How important is work experience for immigration?", a: "Very — points-based systems reward skilled experience." },
+      { q: "Can I migrate with low English skills?", a: "Some countries offer pathways for trades, or you can take language courses." },
+      { q: "Can I study and work full-time at the same time?", a: "No, student visa caps working hours (20h/week usually). Violation risks status." }
+    ],
+    life: [
+      { q: "What should I do immediately after arriving?", a: "Register address, open bank account, get SIM, apply for residence permit. <a href='/arrival-checklist'>Full checklist</a>." },
+      { q: "What should I pack when moving abroad?", a: "Documents, basic clothes, medicines, electronics. Avoid overpacking." },
+      { q: "Can I travel while my visa is being processed?", a: "Usually not recommended; you might need to stay until approval." },
+      { q: "What are the common mistakes migrants make?", a: "Underestimating costs, ignoring healthcare, relying on fake agents." },
+      { q: "Is health insurance required?", a: "<strong>Mandatory</strong> for most visa types (Germany, Canada, Australia)." },
+      { q: "Can I change my visa type after arrival?", a: "Yes, e.g., student → work permit in Canada, Australia (subject to eligibility)." },
+      { q: "What happens if I overstay my visa?", a: "Fines + future bans. Always apply for extension or exit on time." },
+      { q: "Can I lose my PR status?", a: "Yes if you fail residency obligations (e.g., 2 years out of 5 in Canada)." },
+      { q: "What is deportation and how to avoid?", a: "Follow all visa rules, renew permits, obey local laws." }
+    ],
+    about: [
+      { q: "What is this website about?", a: "Research-based migration guides: costs, visa steps, real-life advice — no fluff." },
+      { q: "Who writes the content on this site?", a: "A dedicated researcher analyzing official sources & migrant experiences." },
+      { q: "Is the information on this website reliable?", a: "Yes, based on government portals and cross-checked data. But policies change — verify." },
+      { q: "Does this site use official sources?", a: "Embassy websites, immigration acts, official gazettes, and OECD data." },
+      { q: "How often is the content updated?", a: "Regular reviews; major changes within weeks." },
+      { q: "Is this website an immigration agency?", a: "No, independent information hub. We don't process visas." },
+      { q: "Do you provide visa application services?", a: "No, only step-by-step DIY guides." },
+      { q: "Why should I trust this website?", a: "Transparency, detailed breakdowns, real costs, and no hidden agendas." },
+      { q: "Is the information free to use?", a: "100% free — all guides accessible." },
+      { q: "Do you recommend immigration agents?", a: "We encourage self-application; if using agents, verify credentials." },
+      { q: "How is this website different from others?", a: "Focus on practical steps, common pitfalls, and post-arrival realities." },
+      { q: "Can beginners use this website?", a: "Absolutely. Simple language, structured walkthroughs." },
+      { q: "Does this site guarantee visa approval?", a: "<strong>Never.</strong> Approval depends on authorities." },
+      { q: "Can I rely only on this website for my application?", a: "Use as a starting point, but always cross-check with official government sites." },
+      { q: "Are your guides suitable for all countries?", a: "We cover top destinations: Canada, Australia, Germany, UK, NZ." },
+      { q: "How do you choose which countries to cover?", a: "Based on demand, migration opportunities, and user requests." },
+      { q: "Do you include real-life experiences?", a: "Yes, insights from migrants about challenges and wins." },
+      { q: "Can I request a guide for a specific country?", a: "Yes! Use our contact page to suggest a country." },
+      { q: "Does this website earn money?", a: "May include ads/partners but never affects accuracy." },
+      { q: "How can I contact you?", a: "Visit contact page for feedback, suggestions, or collaborations." }
+    ]
+  };
+
+  // Render function
+  function renderSection(sectionId, dataArray, targetId) {
+    const container = document.getElementById(targetId);
+    if (!container) return;
+    container.innerHTML = '';
+    dataArray.forEach(item => {
+      const faqDiv = document.createElement('div');
+      faqDiv.className = 'faq-item';
+      faqDiv.setAttribute('data-question', item.q.toLowerCase());
+      faqDiv.setAttribute('data-answer', item.a.toLowerCase());
+      faqDiv.innerHTML = `
+        <div class="faq-question">
+          <span>${item.q}</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>${item.a}</p>
+        </div>
+      `;
+      container.appendChild(faqDiv);
+    });
+  }
+
+  renderSection('general', faqData.general, 'faqGeneral');
+  renderSection('visa', faqData.visa, 'faqVisa');
+  renderSection('costs', faqData.costs, 'faqCosts');
+  renderSection('studywork', faqData.studywork, 'faqStudyWork');
+  renderSection('life', faqData.life, 'faqLife');
+  renderSection('about', faqData.about, 'faqAbout');
+
+  // Accordion logic
+  function initAccordion() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const questionDiv = item.querySelector('.faq-question');
+      questionDiv.addEventListener('click', (e) => {
+        e.stopPropagation();
+        item.classList.toggle('active');
+      });
+    });
+  }
+  initAccordion();
+
+  // Live search filter
+  const searchInput = document.getElementById('searchInput');
+  function filterFAQs() {
+    const query = searchInput.value.toLowerCase().trim();
+    const allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(item => {
+      const qText = item.getAttribute('data-question') || '';
+      const aText = item.getAttribute('data-answer') || '';
+      const matches = qText.includes(query) || aText.includes(query);
+      item.style.display = matches ? '' : 'none';
+    });
+    // optional: hide empty sections? not required but keeps clean
+  }
+  searchInput.addEventListener('input', filterFAQs);
+
+  // Popular questions: scroll & open the matching item
+  const popularSpans = document.querySelectorAll('.popular-badge');
+  popularSpans.forEach(span => {
+    span.addEventListener('click', () => {
+      const targetQuestion = span.getAttribute('data-qtext');
+      const items = document.querySelectorAll('.faq-item');
+      for (let item of items) {
+        const qSpan = item.querySelector('.faq-question span');
+        if (qSpan && qSpan.innerText.trim() === targetQuestion) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (!item.classList.contains('active')) item.classList.add('active');
+          break;
+        }
+      }
+    });
+  });
+
+  // generate JSON-LD schema dynamically for rich snippets
+  function generateFAQSchema() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const mainEntity = [];
+    faqItems.forEach(item => {
+      const questionElem = item.querySelector('.faq-question span');
+      const answerElem = item.querySelector('.faq-answer p');
+      if (questionElem && answerElem) {
+        mainEntity.push({
+          "@type": "Question",
+          "name": questionElem.innerText.trim(),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": answerElem.innerText.trim()
+          }
+        });
+      }
+    });
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": mainEntity
+    };
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'application/ld+json';
+    scriptTag.textContent = JSON.stringify(schema);
+    document.head.appendChild(scriptTag);
+  }
+  window.addEventListener('DOMContentLoaded', generateFAQSchema);
+</script>
+</body>
+</html>
