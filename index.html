@@ -350,6 +350,215 @@
             .footer-content { flex-direction: column; text-align: center; }
             .footer-nav-links { flex-direction: column; gap: 0.8rem; }
         }
+                /* ===== HOW TO SECTION ===== */
+        .how-to-section {
+            max-width: 1300px;
+            margin: 3rem auto 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .how-to-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 32px;
+            padding: 2.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.02em;
+        }
+
+        .how-to-intro {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .step-content code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.85em;
+        }
+
+        .ratio-note {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1e40af;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .ratio-note i {
+            font-size: 1.2rem;
+            color: #2563eb;
+        }
+
+        /* ===== HOME FAQ SECTION ===== */
+        .home-faq-section {
+            max-width: 1300px;
+            margin: 2rem auto 1rem;
+            padding: 0 1.5rem;
+        }
+
+        .home-faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item-home {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item-home:hover {
+            border-color: #2563eb;
+            box-shadow: 0 10px 25px -10px rgba(37, 99, 235, 0.1);
+        }
+
+        .faq-question-home {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-question-home i {
+            color: #2563eb;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .faq-question-home h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        .faq-answer-home {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.6;
+            padding-left: 1.8rem;
+        }
+
+        .faq-cta {
+            text-align: center;
+        }
+
+        .faq-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #2563eb;
+            color: white;
+            padding: 0.9rem 2.5rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .faq-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -8px #2563eb80;
+        }
+
+        .faq-btn i {
+            transition: transform 0.2s ease;
+        }
+
+        .faq-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 1000px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .how-to-container {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .home-faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -891,6 +1100,98 @@
             <a href="content/page9.html">9</a>
             <a href="content/page2.html">Next <i class="fas fa-chevron-right"></i></a>
         </div>
+                <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="how-to-section">
+            <div class="how-to-container">
+                <h2 class="section-title">How to Use These Prompts</h2>
+                <div class="how-to-content">
+                    <p class="how-to-intro">Every prompt is tested for accurate results, so you don't need to worry about output. Simply copy the prompt and choose your favorite AI tool — I personally recommend <strong>Gemini</strong>, which I've been using extensively.</p>
+                    
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Upload Your Image</h4>
+                                <p>Make sure your face is clearly visible in the uploaded reference photo.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Paste the Prompt</h4>
+                                <p>Copy any prompt from the gallery and paste it into your AI tool.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Configure Your Tool</h4>
+                                <p>On Gemini, select <strong>Image Creation</strong> and set mode to <strong>Pro</strong> for best results.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Adjust Aspect Ratio</h4>
+                                <p>Add to end of prompt: <code>--ar 1:1</code> for profile, <code>--ar 4:5</code> for Facebook, <code>--ar 9:16</code> for TikTok, or <code>--ar 16:9</code> for widescreen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ratio-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span><strong>AR = Aspect Ratio</strong> — controls the width-to-height proportion of your generated image.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="home-faq-section">
+            <div class="faq-container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="home-faq-grid">
+                    <div class="faq-item-home">
+                        <div class="faq-question-home">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>What are AI prompts?</h4>
+                        </div>
+                        <p class="faq-answer-home">AI prompts are the instructions or descriptions you give to an AI tool to generate content. They act as a guide for the AI, telling it what you want to create.</p>
+                    </div>
+                    <div class="faq-item-home">
+                        <div class="faq-question-home">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Are these prompts free to use?</h4>
+                        </div>
+                        <p class="faq-answer-home">Yes, all prompts available on this site are free to use. You can copy and use them without any cost.</p>
+                    </div>
+                    <div class="faq-item-home">
+                        <div class="faq-question-home">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Can I edit or customize the prompts?</h4>
+                        </div>
+                        <p class="faq-answer-home">Absolutely. Customizing prompts is one of the best ways to improve results. You can change words, add details, or adjust the style.</p>
+                    </div>
+                    <div class="faq-item-home">
+                        <div class="faq-question-home">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Why do some prompts give different results?</h4>
+                        </div>
+                        <p class="faq-answer-home">AI tools don't always produce the same output every time due to randomness or slight variations in interpretation.</p>
+                    </div>
+                    <div class="faq-item-home">
+                        <div class="faq-question-home">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Which AI tools can I use these with?</h4>
+                        </div>
+                        <p class="faq-answer-home">Most prompts work with ChatGPT, Midjourney, DALL·E, and Runway ML. Results may vary slightly by platform.</p>
+                    </div>
+                </div>
+                <div class="faq-cta">
+                    <a href="/faq.html" class="faq-btn">View All FAQs <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
